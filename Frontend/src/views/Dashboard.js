@@ -1,6 +1,6 @@
 import React from "react";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
+import { Line, Bar, Pie } from "react-chartjs-2";
 
 // reactstrap components
 import {
@@ -25,25 +25,23 @@ import {
 
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
+import Piechart from "views/Piechart.js";
+import Activeuserlinechart from "views/Activeuserslinechart.js"
 
 import {
-  dashboardPanelChart,
-  dashboardShippedProductsChart,
   dashboardAllProductsChart,
   dashboard24HoursPerformanceChart,
 } from "variables/charts.js";
 
 class Dashboard extends React.Component {
+  
   render() {
     return (
       <>
         <PanelHeader
           size="lg"
           content={
-            <Line
-              data={dashboardPanelChart.data}
-              options={dashboardPanelChart.options}
-            />
+            <Activeuserlinechart/>
           }
         />
         <div className="content">
@@ -51,8 +49,8 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Global Sales</h5>
-                  <CardTitle tag="h4">Shipped Products</CardTitle>
+                  <h5 className="card-category">% of Volunteers</h5>
+                  <CardTitle tag="h4">Volunteers Age Group</CardTitle>
                   <UncontrolledDropdown>
                     <DropdownToggle
                       className="btn-round btn-outline-default btn-icon"
@@ -72,10 +70,7 @@ class Dashboard extends React.Component {
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
-                    <Line
-                      data={dashboardShippedProductsChart.data}
-                      options={dashboardShippedProductsChart.options}
-                    />
+                  <Piechart/>
                   </div>
                 </CardBody>
                 <CardFooter>
@@ -89,8 +84,8 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">2020 Sales</h5>
-                  <CardTitle tag="h4">All products</CardTitle>
+                  <h5 className="card-category">Recent Interest</h5>
+                  <CardTitle tag="h4">Orphanage</CardTitle>
                   <UncontrolledDropdown>
                     <DropdownToggle
                       className="btn-round btn-outline-default btn-icon"
@@ -127,8 +122,8 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Email Statistics</h5>
-                  <CardTitle tag="h4">24 Hours Performance</CardTitle>
+                  <h5 className="card-category">Availability</h5>
+                  <CardTitle tag="h4">Old Age Home</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">

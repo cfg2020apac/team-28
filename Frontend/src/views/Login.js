@@ -17,9 +17,52 @@ import {
 import { Route, Switch, Redirect } from "react-router-dom";
   
   // core components
-  import PanelHeader from "components/PanelHeader/PanelHeader.js";
+  import PanelHeader from "components/PanelHeader/PanelHeader.js"; 
   
   class Login extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        username: '',
+        password: '',
+        error: '',
+      };
+      this.handlePassChange = this.handlePassChange.bind(this);
+      this.handleUserChange = this.handleUserChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.dismissError = this.dismissError.bind(this);
+    }
+    dismissError() {
+      this.setState({ error: '' });
+    }
+
+    handleSubmit(evt) {
+      evt.preventDefault();
+  
+      if (!this.state.username) {
+        return this.setState({ error: 'Username is required' });
+      }
+  
+      if (!this.state.password) {
+        return this.setState({ error: 'Password is required' });
+      }
+  
+      return this.setState({ error: '' });
+      }
+    
+      handleUserChange(evt) {
+        this.setState({
+          username: evt.target.value,
+        });
+        console.log(this.state.username);
+      };
+    
+      handlePassChange(evt) {
+        this.setState({
+          password: evt.target.value,
+        });
+      }
+
     render() {
       return (
         <>
@@ -41,6 +84,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
                             defaultValue="admin"
                             placeholder="Username"
                             type="text"
+                            onChange={this.handleUserChange}
                           />
                         </FormGroup>
                       </Col>
@@ -53,6 +97,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
                             defaultValue="admin"
                             placeholder="Password"
                             type="password"
+                            onChange={this.handlePassChange}
                           />
                         </FormGroup>
                       </Col>
@@ -63,6 +108,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
                         target="_blank"
                         className="btn btn-primary btn-block btn-round"
                         style = {{width: "300px"}}
+                        onClick = {this.handleSubmit}
                       >
                         Sign In
                       </a>

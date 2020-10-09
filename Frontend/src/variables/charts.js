@@ -1,5 +1,8 @@
 // ##############################
 // // // Function that converts a hex color number to a RGB color number
+
+const { default: Piechart } = require("views/Piechart");
+
 // #############################
 function hexToRGB(hex, alpha) {
   var r = parseInt(hex.slice(1, 3), 16),
@@ -150,7 +153,7 @@ const dashboardPanelChart = {
       ],
       datasets: [
         {
-          label: "Data",
+          label: "Active Users",
           borderColor: chartColor,
           pointBorderColor: chartColor,
           pointBackgroundColor: "#2c2c2c",
@@ -278,6 +281,42 @@ const dashboardShippedProductsChart = {
   options: gradientChartOptionsConfiguration,
 };
 
+
+// ##############################
+// // // Dashboard view - Pie
+// #############################
+
+// const dashboardPieChart = {
+//   data:(canvas) => {
+//     var state = (async () =>{
+//       const response = await fetch('http://localhost:3004/data');
+//       return response.json();
+//     })
+//     console.log(state);
+//     return {
+//     labels: [
+//       '10-19',
+//       '20-29',
+//       '30-39',
+//       '40-49',
+//       '50-59',
+//       'Others',
+//     ],
+//     datasets: [{
+//       data: pieData,
+//       backgroundColor: [
+//       '#FF6384',
+//       '#36A2EB',
+//       '#FFCE56',
+//       "#18ce0f",
+//       "#f96332",
+//       '#ff0000',
+//       ]
+//     }]
+//   }
+//   },
+// };
+
 // ##############################
 // // // Dashboard view - All Products - Card
 // #############################
@@ -292,7 +331,7 @@ const dashboardAllProductsChart = {
     gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     gradientFill.addColorStop(1, hexToRGB("#18ce0f", 0.4));
     return {
-      labels: ["12pm,", "3pm", "6pm", "9pm", "12am", "3am", "6am", "9am"],
+      labels: [40, 50, 54, 63, 85, 101, 221, 250],
       datasets: [
         {
           label: "Email Stats",
@@ -306,7 +345,7 @@ const dashboardAllProductsChart = {
           fill: true,
           backgroundColor: gradientFill,
           borderWidth: 2,
-          data: [40, 500, 650, 700, 1200, 1250, 1300, 1900],
+          data: [40, 50, 54, 63, 85, 101, 221, 250],
         },
       ],
     };
@@ -341,7 +380,7 @@ const dashboard24HoursPerformanceChart = {
       ],
       datasets: [
         {
-          label: "Active Countries",
+          label: "People",
           backgroundColor: gradientFill,
           borderColor: "#2CA8FF",
           pointBorderColor: "#FFF",
@@ -410,4 +449,5 @@ module.exports = {
   dashboardShippedProductsChart, // Chart for Dashboard view - Shipped Products Card
   dashboardAllProductsChart, // Chart for Dashboard view - All products Card
   dashboard24HoursPerformanceChart, // Chart for Dashboard view - 24 Hours Performance Card
+  // dashboardPieChart,
 };
