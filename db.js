@@ -3,9 +3,9 @@ const firebase = require("firebase");
 require("firebase/firestore");
 // Initialize Cloud Firestore through Firebase
 firebase.initializeApp({
-    apiKey: '### FIREBASE API KEY ###',
-    authDomain: '### FIREBASE AUTH DOMAIN ###',
-    projectId: '### CLOUD FIRESTORE PROJECT ID ###'
+    apiKey: '',
+    authDomain: 'cfg-team28.firebaseapp.com',
+    projectId: 'cfg-team28'
 });
 
 module.exports = {
