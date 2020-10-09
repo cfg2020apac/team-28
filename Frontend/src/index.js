@@ -9,14 +9,15 @@ import "assets/css/demo.css";
 
 import AdminLayout from "layouts/Admin.js";
 import Login from "views/Login";
+import PrivateRoute from "./components/PrivateRoute";
 
 const hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-      <Route path="/login" component={Login} />
+        <PrivateRoute path='/admin' component={AdminLayout} />
+        <Route path="/login" component={Login} />
       <Redirect to="/login" />
     </Switch>
   </Router>,
