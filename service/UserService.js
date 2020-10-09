@@ -1,3 +1,6 @@
+const {db} = require('../db');
+const {UserEntity} = require('../entity/User');
+
 module.exports = {
     createUser: (username, password) => {
         db.collection("user")
