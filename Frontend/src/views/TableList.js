@@ -22,7 +22,7 @@ class RegularTables extends React.Component {
     return (
       <>
         <PanelHeader size="sm" />
-        <div className="content" style={{position: "relative"}}>
+        <div className="content" style={{position: "relative", zIndex: 5}}>
         <MuiDatatable/>
         </div>
       </>
