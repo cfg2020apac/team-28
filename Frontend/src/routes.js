@@ -7,6 +7,7 @@ import Maps from "views/Maps.js";
 import Upgrade from "views/Upgrade.js";
 import UserPage from "views/UserPage.js";
 import CreateEventPage from "./views/CreateEventPage";
+import EventListPage from "./views/EventListPage";
 
 var dashRoutes = [
   {
@@ -71,6 +72,13 @@ var dashRoutes = [
     name: "Create Event Page",
     icon: "users_single-02",
     component: CreateEventPage,
+    layout: "/admin",
+  },
+  {
+    path: "/view-event",
+    name: "View Event List",
+    icon: "users_single-02",
+    component: EventListPage,
     layout: "/admin",
   },
 ];
